@@ -45,7 +45,7 @@ jobs:
         run: |
           hugo \
             --source ./daprdocs \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "${{ steps.pages.outputs.base_url }}/dapr_docs/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
