@@ -60,7 +60,7 @@ Continue with the [Run local server](#run-local-server) steps.
 
 ### Pre-requisites
 
-- [Hugo extended version](https://gohugo.io/getting-started/installing)
+- [Hugo extended version](https://gohugo.io/getting-started/installing) (version v0.105.0 is known to work)
 - [Node.js](https://nodejs.org/en/)
 
 ### Environment setup
