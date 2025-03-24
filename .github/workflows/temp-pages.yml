@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.100.2'
+          extended: true
+    
       - uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -23,12 +29,6 @@ jobs:
       - name: Setup Docsy
         working-directory: ./daprdocs
         run: git submodule update --init --recursive && sudo npm install -D --save autoprefixer && sudo npm install -D --save postcss-cli
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.100.2'
-          extended: true
 
       - name: Build
         env:
