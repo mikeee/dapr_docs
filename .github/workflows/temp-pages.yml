@@ -15,8 +15,14 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          
+      - name: Install npm deps
+        working-directory: ./daprdocs
+        run: npm install
+          
       - name: Setup Docsy
-        run: cd daprdocs && git submodule update --init --recursive && sudo npm install -D --save autoprefixer && sudo npm install -D --save postcss-cli
+        working-directory: ./daprdocs
+        run: git submodule update --init --recursive && sudo npm install -D --save autoprefixer && sudo npm install -D --save postcss-cli
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -28,7 +34,7 @@ jobs:
         env:
           HUGO_ENV: production
           HUGO_VERSION: "0.100.2"
-        run: hugo --source ./daprdocs --minify
+        run: hugo --source ./daprdocs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
